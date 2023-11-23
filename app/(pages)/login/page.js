@@ -15,21 +15,21 @@ export default function Login() {
     const handleLogin = async (e) => {
         e.preventDefault()
 
-        // const resposne = await signIn('credentials', {
-        //     redirect: false,
-        //     email: email,
-        //     password:password
-        // })
+        const resposne = await signIn('credentials', {
+            redirect: false,
+            email: email,
+            password:password
+        })
 
-        // if(!resposne.error) {
-        //     router.refresh()
-        //     router.push('/')
-        // }
+        if(!resposne.error) {
+            router.refresh()
+            router.push('/')
+        }
 
-        const resposne = await api.post('/register', {
-            email,
-            password
-        }).then(data => data.data)
+        // const resposne = await api.post('/register', {
+        //     email,
+        //     password
+        // }).then(data => data.data)
     }
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
