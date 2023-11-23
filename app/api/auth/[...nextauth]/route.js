@@ -14,15 +14,21 @@ const authOptions = {
                 password: { label: 'Password', type: 'password' }
             },
             async authorize(credentials) {
-                const user = await api.post('/login', {
-                    email: credentials?.email,
-                    password: credentials?.password
-                }).then(data => { return data.data })
+                // const user = await api.post('/login', {
+                //     email: credentials?.email,
+                //     password: credentials?.password
+                // }).then(data => { return data.data })
 
-                if (user == null) {
-                    return null
+                // if (user == null) {
+                //     return null
+                // }
+                // return user
+
+                if (credentials?.email == 'admin@email.com' && credentials?.password == 'admin'){
+                    return true
                 }
-                return user
+
+                return false
             }
         })
     ],
